@@ -1,0 +1,38 @@
+{
+    "accessKeyId": "",
+    "secretAccessKey": "",
+    "mainNodeName": "sun",
+    "mainPublicIp": "",
+    "sshKeyName": "haidv_MacbookPro",
+    "privateKeyPath": "~/.ssh/id_rsa",
+    "networkId": 89,
+    "verbosity": 4,
+    "sshKeys": [],
+    "coinbasePrivateKeySun": "",
+    "nodes": [
+        {
+            "name": "moon",
+            "coinbaseAddress": "",
+            "coinbasePrivateKey": "",
+            "ownerPrivateKey": "",
+            "resignBlockNumber": 0,
+            "region": "ap-southeast-1"
+        },
+        {
+            "name": "earth",
+            "coinbaseAddress": "",
+            "coinbasePrivateKey": "",
+            "ownerPrivateKey": "",
+            "resignBlockNumber": 0,
+            "region": "ap-southeast-1"
+        },
+        {
+            "name": "jupiter",
+            "coinbaseAddress": "",
+            "coinbasePrivateKey": "",
+            "ownerPrivateKey": "",
+            "resignBlockNumber": 0,
+            "region": "ap-southeast-1"
+        }
+    ]
+}

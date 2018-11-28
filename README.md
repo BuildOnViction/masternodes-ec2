@@ -9,7 +9,7 @@ This project aims to `vagrant up` a multi-node/multi-region Node ready-to-use wi
 You need to have AWS setup so that
 
 - there is a `vagrant` security group (you can change other name edit `security_groups` parameter)
-- there is a security group that allows inbound traffic to all ports used by Masternode (configured defaults are for Masternode: 30303,30301,22,9160)
+- there is a security group that allows inbound traffic to all ports used by Masternode (configured defaults are for Masternode: 30303,30301,22,8545)
 - your instances receive a public DNS entry
 - there is a key-pair for which you have the private key file available
 
@@ -46,4 +46,3 @@ This has at the moment only been tested under `Ubuntu 18.04.LTS`, so you should 
 ## ERROR
 
 1. [from_keypair error when use keypair generate from ssh_keygen command](https://github.com/net-ssh/net-ssh/issues/638#issuecomment-441189002)
-2. [tmn cannot install](!)

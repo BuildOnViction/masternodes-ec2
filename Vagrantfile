@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
         sudo usermod -aG docker ubuntu
         sudo apt-get install -y python3 && sudo apt-get install -y python3-pip
         pip3 install --user tmn
-        export PATH="$PATH":/home/ubuntu/.local/bin
+        echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
         source /home/ubuntu/.env
         tmn start --name anonymous --pkey ${COINBASE_PRIVATE_KEY} --net testnet
         SCRIPT

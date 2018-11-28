@@ -13,4 +13,4 @@ sudo usermod -aG docker ubuntu
 sudo apt-get install -y python3 && sudo apt-get install -y python3-pip
 pip3 install tmn
 echo 'export PATH=\$PATH:~/.local/bin' >> ~/.bashrc
-tmn start --name haidv --pkey ${COINBASE_PRIVATE_KEY} --net testnet
+tmn start --name anonymous --pkey ${COINBASE_PRIVATE_KEY} --net testnet

@@ -42,10 +42,10 @@ Vagrant.configure("2") do |config|
           override.ssh.username = 'ubuntu'
         config.vm.synced_folder ".", "/vagrant", disabled: true
         config.vm.provision "file", source: "./apply.sh", destination: "/home/ubuntu/apply.sh"
-        config.vm.provision "file", source: envFile, destination: "/home/ubuntu/.env"
+        config.vm.provision "file", source: envFile, destination: "~/.env"
         $post_script = <<-SCRIPT
         sudo apt-get update
-        sudo apt-get install \
+        sudo apt-get install -y \
                       apt-transport-https \
                       ca-certificates \
                       curl \
@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
         sudo usermod -aG docker ubuntu
         sudo apt-get install -y python3 && sudo apt-get install -y python3-pip
         pip3 install --user tmn
-        echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
+        echo 'export PATH=\$PATH:~/.local/bin' >> ~/.bashrc
         source /home/ubuntu/.env
         tmn start --name anonymous --pkey ${COINBASE_PRIVATE_KEY} --net testnet
         SCRIPT

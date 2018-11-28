@@ -1,14 +1,4 @@
-#  Local .terraform directories
-**/.terraform/*
-
-# .tfstate files
-*.tfstate
-*.tfstate.*
-
-# .tfvars files
-*.tfvars
-
-#config
+#  Local .vagrant directories
 .env*
 .sshKeys*
 .pwd

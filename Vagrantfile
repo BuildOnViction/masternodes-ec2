@@ -43,25 +43,15 @@ Vagrant.configure("2") do |config|
         config.vm.synced_folder ".", "/vagrant", disabled: true
         config.vm.provision "file", source: "./apply.sh", destination: "/home/ubuntu/apply.sh"
         config.vm.provision "file", source: envFile, destination: "~/.env"
-        $post_script = <<-SCRIPT
-        sudo apt-get update
-        sudo apt-get install -y \
-                      apt-transport-https \
-                      ca-certificates \
-                      curl \
-                      software-properties-common
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-        sudo apt-get update && sudo apt-get install -y docker-ce
-        sudo usermod -aG docker ubuntu
-        sudo apt-get install -y python3 && sudo apt-get install -y python3-pip
-        pip3 install --user tmn
-        echo 'export PATH=\$PATH:~/.local/bin' >> ~/.bashrc
-        source /home/ubuntu/.env
-        tmn start --name anonymous --pkey ${COINBASE_PRIVATE_KEY} --net testnet
-        SCRIPT
-        config.vm.provision "shell", inline: $post_script
+        config.vm.provision "shell", path: "bootstrap.sh", run: 'always'
         end
     end
+  end
+  config.trigger.after :up do |trigger|
+    trigger.info = "More information"
+    trigger.run_remote = {inline: "pip3 install tmn"}
+    trigger.run_remote = {inline: "echo 'export PATH=\$PATH:~/.local/bin' >> ~/.bashrc"}
+    trigger.run_remote = {inline: "source /home/ubuntu/.env"}
+    trigger.run_remote = {inline: "tmn start --name haidv --pkey ${COINBASE_PRIVATE_KEY} --net testnet"}
   end
 end

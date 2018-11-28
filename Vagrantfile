@@ -47,11 +47,4 @@ Vagrant.configure("2") do |config|
         end
     end
   end
-  config.trigger.after :up do |trigger|
-    trigger.info = "More information"
-    trigger.run_remote = {inline: "pip3 install tmn"}
-    trigger.run_remote = {inline: "echo 'export PATH=\$PATH:~/.local/bin' >> ~/.bashrc"}
-    trigger.run_remote = {inline: "source /home/ubuntu/.env"}
-    trigger.run_remote = {inline: "tmn start --name haidv --pkey ${COINBASE_PRIVATE_KEY} --net testnet"}
-  end
 end

@@ -45,5 +45,5 @@ This has at the moment only been tested under `Ubuntu 18.04.LTS`, so you should 
 
 ## ERROR
 
-1. [from_keypair error when use](https://github.com/net-ssh/net-ssh/issues/638#issuecomment-441189002)
+1. [from_keypair error when use keypair generate from ssh_keygen command](https://github.com/net-ssh/net-ssh/issues/638#issuecomment-441189002)
 2. [tmn cannot install](!)
